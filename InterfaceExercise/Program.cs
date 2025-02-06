@@ -1,49 +1,52 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.ConstrainedExecution;
 
 namespace InterfaceExercise
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
+            public static void Main(string[] args)
+            {
+                //Creating objects for Car, Truck, and SUV
+                var car = new Car
+                {
+                    CompanyName = "Car Company",
+                    NumberOfWheels = 4,
+                    FuelType = "Petrol",
+                    TopSpeed = 220,
+                    HasAirConditioning = true,
+                    HasTrunk = true,
+                    IsConvertible = false
+                };
 
-            //Create 2 Interfaces called IVehicle & ICompany
+                var truck = new Truck
+                {
+                    CompanyName = "Truck Co.",
+                    NumberOfWheels = 6,
+                    FuelType = "Diesel",
+                    TopSpeed = 180,
+                    HasAirConditioning = false,
+                    PayloadCapacity = 5000,
+                    HasTowPackage = true
+                };
 
-            //Create 3 classes called Car , Truck , & SUV
+                var suv = new SUV
+                {
+                    CompanyName = "SUV Motors",
+                    NumberOfWheels = 4,
+                    FuelType = "Hybrid",
+                    TopSpeed = 200,
+                    HasAirConditioning = true,
+                    NumberOfSeats = 7,
+                    HasFourWheelDrive = true
+                };
 
-            //In your IVehicle:
-            
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: public int NumberOfWheels { get; set; }
-                 */
-            
-
-            //In ICompany: 
-            
-                /* Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 * Example: public string Logo { get; set; }
-                 */
-
-            //In each of your Car, Truck, and SUV classes
-
-                /* Create 2 members that are specific to each class
-                 * Example for Car: public bool HasTrunk { get; set; }
-                 * Example for SUV: public int NumberOfSeats { get; set; }
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 */
-
-            //Now, create objects of your 3 classes and give their members values.
-            //Creatively display and organize their values
-            
-            //Option for displaying values: 
-            //Create a stubbed out method called DisplayDetails in your IVehicle interface.
-            //Implement the stubbed out method in the derived classes.
-            //In the scope of them method, use string interpolation to display property values.
-            //In order to also interpolate values from ICompany, research how to extend interfaces.
-            
+                //Displaying details for each vehicle
+                car.DisplayDetails();
+                truck.DisplayDetails();
+                suv.DisplayDetails();
+            }
         }
+
     }
-}
